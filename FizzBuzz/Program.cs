@@ -27,6 +27,10 @@ namespace FizzBuzz
                 {
                     Result += ("Buzz");
                 }
+                else if (i % 11 == 0)
+                {
+                    Result = "Bong";
+                }
                 else
                 {
                     Result = i.ToString();
