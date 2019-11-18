@@ -78,9 +78,13 @@ namespace FizzBuzz
             {
                 foreach (string word in Result)
                 {
-                    if (word == "Buzz" | word == "Bang")
+                    if (word == "Buzz")
                     {
-
+                        Result.Insert(Result.IndexOf("Buzz"), "Fezz");
+                    }
+                    if (word == "Bang")
+                    {
+                        Result.Insert(Result.IndexOf("Bang"), "Fezz");
                     }
                 }
                
