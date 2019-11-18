@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FizzBuzz
 {
@@ -7,75 +8,74 @@ namespace FizzBuzz
         static void Main(string[] args)
         {
             int MaxValue = 0;
+            List<string> Result = new List<string>();
 
             Console.WriteLine("Enter the max range: ");
             MaxValue = int.Parse(Console.ReadLine());
+
             for (int i = 0; i < MaxValue; i++)
             {
-                // Makes sure its reset every time in the loop
-                string Result = "";
+                // Makes sure Result resets every time in the loop
+                Result.Clear();
                 
                 
                 if (i % 7 == 0)
                 {
                     if (i % 13 == 0)
                     {
-                        Result += "Fezz";
+                        Result.Add("Fezz");
                     }
-                    Result += "Bang";
+                    Result.Add("Bang");
                 }
                 if (i % 3 == 0 && i % 5 ==0)
                 {
-                    Result += "Fizz";
+                    Result.Add("Fizz");
                     if (i % 13 == 0)
                     {
-                        Result += "Fezz";
+                        Result.Add("Fezz");
                     }
-                    Result += "Buzz";
+                    Result.Add("Buzz");
                 }
                  else if (i % 3 == 0)
                 {
-                    Result += "Fizz";
+                    Result.Add("Fizz");
                     if (i % 13 == 0)
                     {
-                        Result += "Fezz";
+                        Result.Add("Fezz");
                     }
                 }
                 else if (i % 5 == 0)
                 {
                     if (i % 13 == 0)
                     {
-                        Result += "Fezz";
+                        Result.Add("Fezz");
                     }
-                    Result += "Buzz";
+                    Result.Add("Buzz");
                 }
                 else if (i % 11 == 0)
                 {
                     if (i % 13 == 0)
                     {
-                        Result += "Fezz";
-                        Result += "Bong";
+                        Result.Add("Fezz");
+                        Result.Add("Bong");
                     }
                     else
                     {
-                        Result = "Bong";
+                        Result.Add("Bong");
                     }
                 }
                 else
                 {
-                    Result = i.ToString();
+                    Result.Add(i.ToString());
                 }
-                /*
+
                 if (i % 17 == 0)
                 {
-                    for (int j = 0; j < Result.Length; j++)
-                    {
-                        
-                    }
+                    Result.Reverse();
                 }
                 // Print the result to the console
-                */
-                Console.WriteLine(Result);
+                string Combined = string.Join("", Result);
+                Console.WriteLine(Combined);
             }
             // Just to keep the console open until a key is pressed
             Console.ReadLine();
