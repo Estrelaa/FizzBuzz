@@ -6,30 +6,56 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 101; i++)
+            for (int i = 1; i < 256; i++)
             {
                 // Makes sure its reset every time in the loop
                 string Result = "";
-
+                
+                
                 if (i % 7 == 0)
                 {
-                    Result += ("Bang");
+                    if (i % 13 == 0)
+                    {
+                        Result += "Fezz";
+                    }
+                    Result += "Bang";
                 }
                 if (i % 3 == 0 && i % 5 ==0)
                 {
-                    Result += ("FizzBuzz");
+                    Result += "Fizz";
+                    if (i % 13 == 0)
+                    {
+                        Result += "Fezz";
+                    }
+                    Result += "Buzz";
                 }
                  else if (i % 3 == 0)
                 {
-                    Result += ("Fizz");
+                    Result += "Fizz";
+                    if (i % 13 == 0)
+                    {
+                        Result += "Fezz";
+                    }
                 }
                 else if (i % 5 == 0)
                 {
-                    Result += ("Buzz");
+                    if (i % 13 == 0)
+                    {
+                        Result += "Fezz";
+                    }
+                    Result += "Buzz";
                 }
                 else if (i % 11 == 0)
                 {
-                    Result = "Bong";
+                    if (i % 13 == 0)
+                    {
+                        Result += "Fezz";
+                        Result += "Bong";
+                    }
+                    else
+                    {
+                        Result = "Bong";
+                    }
                 }
                 else
                 {
