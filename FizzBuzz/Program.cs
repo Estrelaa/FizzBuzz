@@ -9,13 +9,13 @@ namespace FizzBuzz
         static void Main(string[] args)
         {
             // Variables need for the program to work
-            int MaxValue = 0;
+            int UserMaxrange = 0;
             List<string> Result = new List<string>();
 
             Console.WriteLine("Enter the max range: ");
-            MaxValue = int.Parse(Console.ReadLine());
+            UserMaxrange = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i < MaxValue; i++)
+            for (int i = 1; i < UserMaxrange; i++)
             {
                 // Makes sure Result resets every time in the loop
                 Result.Clear();
@@ -58,12 +58,12 @@ namespace FizzBuzz
                 {
                     Result.Reverse();
                 }
-                if (Result.Count() == 0)
+                if (Result?.Count() == 0)
                 {
                     Result.Add(i.ToString());
                 }
 
-                // Print the result to the console
+                // Print the result list to the console
                 string Combined = string.Join("", Result);
                 Console.WriteLine(Combined);
             }
@@ -71,6 +71,9 @@ namespace FizzBuzz
             Console.ReadLine();
         }
 
+        /*
+        This function is for the Fezz rule. Its put Fezz in the right places while making sure the funcion is only added once 
+        */
         private static List<string> Fezz(List<string> Result, int i)
         {
 
@@ -78,28 +81,31 @@ namespace FizzBuzz
             {
                 foreach (var word in Result)
                 {
-                    if (word == "Buzz")
+                    if (word == "Fezz")
+                    {
+                        return Result;
+                    }
+                    else if (word == "Buzz")
                     {
                         Result.Insert(Result.IndexOf("Buzz"), "Fezz");
-                        break;
+                        return Result;
                     }
                     else if (word == "Bang")
                     {
                         Result.Insert(Result.IndexOf("Bang"), "Fezz");
-                        break;
+                        return Result;
                     }
                     else if (word == "Bong")
                     {
                         Result.Insert(Result.IndexOf("Bong"), "Fezz");
-                        break;
+                        return Result;
                     }
                     else
                     {
                         Result.Add("Fezz");
-                        break;
+                        return Result;
                     }
                 }
-               
             }
             return Result;
         }
