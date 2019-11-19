@@ -15,7 +15,7 @@ namespace FizzBuzz
             Console.WriteLine("Enter the max range: ");
             MaxValue = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < MaxValue; i++)
+            for (int i = 1; i < MaxValue; i++)
             {
                 // Makes sure Result resets every time in the loop
                 Result.Clear();
@@ -42,7 +42,7 @@ namespace FizzBuzz
                     Fezz(Result, i);
                     Result.Add("Bang");
                 }
-                else if (i % 11 == 0)
+                if (i % 11 == 0)
                 {
                     if (i % 13 == 0)
                     {
@@ -58,7 +58,7 @@ namespace FizzBuzz
                 {
                     Result.Reverse();
                 }
-                else
+                if (Result.Count() == 0)
                 {
                     Result.Add(i.ToString());
                 }
@@ -76,15 +76,27 @@ namespace FizzBuzz
 
             if (i % 13 == 0)
             {
-                foreach (string word in Result)
+                foreach (var word in Result)
                 {
                     if (word == "Buzz")
                     {
                         Result.Insert(Result.IndexOf("Buzz"), "Fezz");
+                        break;
                     }
-                    if (word == "Bang")
+                    else if (word == "Bang")
                     {
                         Result.Insert(Result.IndexOf("Bang"), "Fezz");
+                        break;
+                    }
+                    else if (word == "Bong")
+                    {
+                        Result.Insert(Result.IndexOf("Bong"), "Fezz");
+                        break;
+                    }
+                    else
+                    {
+                        Result.Add("Fezz");
+                        break;
                     }
                 }
                
